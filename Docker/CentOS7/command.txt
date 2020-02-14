@@ -1,0 +1,31 @@
+##构建镜像
+
+docker build -t calvin/centos:7.1 .
+
+
+##给镜像打上tag标记
+
+docker tag calvin/centos:7.1 192.168.230.31/calvin/centos:7.1
+
+
+##将镜像上传到仓库
+
+docker login 192.168.230.31
+
+docker push 192.168.230.31/calvin/centos:7.1
+
+
+##从镜像仓库下载镜像
+
+docker pull 192.168.230.31/calvin/centos:7.1
+
+
+##运行容器
+
+docker run -d -p 2222:22 --name centos 192.168.230.31/calvin/centos7:7.1
+
+
+##进入容器
+
+docker exec -it centos /bin/bash
+
